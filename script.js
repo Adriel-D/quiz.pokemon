@@ -31,7 +31,7 @@ async function generateQuestion() {
 function displayQuestion() {
     const pokemonImage = document.getElementById('pokemonImage');
     pokemonImage.src = correctPokemon.sprites.front_default;
-    pokemonImage.style.display = 'block';
+    pokemonImage.style.display = 'none'; // Esconde até o tempo da imagem temporária acabar
 
     const optionsDiv = document.getElementById('options');
     optionsDiv.innerHTML = '';
@@ -42,6 +42,9 @@ function displayQuestion() {
         button.onclick = () => checkAnswer(option);
         optionsDiv.appendChild(button);
     });
+
+    // Mostra imagem temporária e, depois, exibe o Pokémon
+    showTemporaryImage();
 }
 
 // Função para verificar a resposta
@@ -66,12 +69,12 @@ function showTemporaryImage() {
     audio.currentTime = 0;
     audio.play().catch(error => console.error("Erro ao tocar áudio:", error));
 
-    temp.style.display = 'block';
-    pokemon.style.display = 'none';
+    temp.style.display = 'block'; // Mostra a imagem temporária
+    pokemon.style.display = 'none'; // Garante que o Pokémon esteja escondido
 
     setTimeout(() => {
         temp.style.display = 'none';
-        pokemon.style.display = 'block';
+        pokemon.style.display = 'block'; // Exibe a imagem do Pokémon
     }, 4000);
 }
 
@@ -79,13 +82,11 @@ function showTemporaryImage() {
 document.getElementById('nextButton').onclick = () => {
     document.getElementById('result').innerHTML = '';
     document.getElementById('nextButton').style.display = 'none';
-    showTemporaryImage();
     generateQuestion();
 };
 
 // Inicializa o jogo
 window.onload = () => {
-    showTemporaryImage();
     generateQuestion();
 };
 
