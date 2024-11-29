@@ -5,14 +5,14 @@ body {
 }
 
 #imagem {
-    position: relative;
     background-color: #ecebae;
-    margin: 0 auto;
-    border-radius: 20px;
-    border: 5px solid black;
+    height: 500px;
     width: 90%;
     max-width: 700px;
-    height: 300px;
+    margin: 0 auto;
+    border-radius: 50px;
+    border: 5px solid black;
+    position: relative;
 }
 
 #pokemonImage, #qlpokemon {
@@ -21,24 +21,24 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     display: none;
-    max-width: 100%;
     max-height: 100%;
+    max-width: 100%;
     border-radius: 20px;
 }
 
 #qlpokemon {
-    z-index: 2; /* Acima */
+    z-index: 2; /* Fica acima */
 }
 
 #pokemonImage {
-    z-index: 1; /* Abaixo */
+    z-index: 1; /* Fica abaixo */
 }
 
 #t1 {
+    margin: 0;
+    padding: 10px 0;
     background-color: greenyellow;
     text-align: center;
-    padding: 10px 0;
-    margin-bottom: 10px;
 }
 
 #title {
@@ -95,13 +95,13 @@ button:hover {
     background-color: #45a049;
 }
 
-@media (max-width: 768px) {
-    #t1 {
-        font-size: 18px;
-    }
+#botao {
+    text-align: center;
+}
 
+@media (max-width: 768px) {
     #imagem {
-        height: 250px;
+        height: 400px;
     }
 
     fieldset {
@@ -115,7 +115,11 @@ button:hover {
 }
 
 @media (max-width: 480px) {
-    #t1 {
+    #imagem {
+        height: 300px;
+    }
+
+    #title {
         font-size: 16px;
     }
 
